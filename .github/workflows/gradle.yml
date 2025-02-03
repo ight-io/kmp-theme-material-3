@@ -15,11 +15,15 @@ jobs:
     strategy:
       matrix:
         include:
-          - target: jvmTest
+          - target: desktopTest
             os: ubuntu-latest
           - target: testDebugUnitTest
             os: ubuntu-latest
           - target: testReleaseUnitTest
+            os: ubuntu-latest
+          - target: wasmJsTest
+            os: ubuntu-latest
+          - target: wasmJsBrowserTest
             os: ubuntu-latest
     runs-on: ${{ matrix.os }}
 
