@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(ight.plugins.kotlinMultiplatform)
@@ -11,28 +10,21 @@ plugins {
 }
 
 kotlin {
-
-
     applyDefaultHierarchyTemplate()
 
+    // ✅ WASM Target Configuration
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "io.ight.theme.wasm"
         browser {
             commonWebpackConfig {
-                outputFileName = "theme.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(project.rootDir.path)
-                        add(project.projectDir.path)
-                    }
-                }
+                outputFileName = "material3.js"
             }
         }
+        binaries.executable()
     }
 
-
+    // ✅ JVM and Android Targets
     jvm("desktop")
     androidTarget {
         publishLibraryVariants("release")
@@ -41,13 +33,24 @@ kotlin {
         }
     }
 
+//    ✅ Apple and Other Native Targets
+//    val nativeTargets = listOf(
+//        iosX64(),
+//        iosArm64(),
+//        iosSimulatorArm64(),
+//        macosX64(),
+//        macosArm64()
+//    )
+//
+//    nativeTargets.forEach {
+//        it.binaries.framework {
+//            baseName = "Material3"
+//            isStatic = true // Ensures a static framework
+//        }
+//    }
 
     sourceSets {
-
-
-        val desktopMain by getting
-
-        commonMain {
+        val commonMain by getting {
             dependencies {
                 api(compose.runtime)
                 api(compose.material3)
@@ -58,13 +61,13 @@ kotlin {
             }
         }
 
-        commonTest {
+        val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
 
-        androidMain {
+        val androidMain by getting {
             dependencies {
                 api(ight.androidx.activity.compose)
                 implementation(compose.uiTooling)
@@ -72,8 +75,16 @@ kotlin {
             }
         }
 
-        desktopMain.dependencies {
-            api(compose.desktop.currentOs)
+        val desktopMain by getting {
+            dependencies {
+                api(compose.desktop.currentOs)
+            }
+        }
+
+        val wasmJsTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
         }
 
         all {

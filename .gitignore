@@ -28,3 +28,5 @@ gradle-app.setting
 local.properties
 *.gpg
 .DS_Store
+
+kotlin-js-store

@@ -34,7 +34,7 @@ import io.ight.theme.AppColor.Image
 import io.ight.theme.AppColor.Image.ColorExtractionImage
 import io.ight.theme.IghtTheme
 import io.ight.theme.IghtTheme.Shape.RoundedCorner
-import io.ight.theme.ThemeDsl
+import io.ight.theme.Material3
 import io.ight.theme.ThemeToggle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -42,7 +42,7 @@ import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.imageResource
 
 
-@ThemeDsl
+@Material3
 internal val  ToggleThemeFromImageButton : ThemeToggle = {
     val appColorState = IghtTheme.appColor.current
     val appColor = appColorState.value

@@ -30,96 +30,96 @@ import io.ight.theme.toggle.ToggleDarkLightModeButton
 typealias ThemeToggle = @Composable () -> Unit
 
 @DslMarker
-annotation class ThemeDsl
+annotation class Material3
 
 
-@ThemeDsl
+@Material3
 data object IghtTheme {
 
 
-    @ThemeDsl
+    @Material3
     val isDark = compositionLocalOf { mutableStateOf(true) }
 
 
-    @ThemeDsl
+    @Material3
     val appColor = compositionLocalOf { mutableStateOf<AppColor>(Seed(BASELINE)) }
 
 
-    @ThemeDsl
+    @Material3
     data object Toggle {
 
 
-        @ThemeDsl
+        @Material3
         val darkLightMode : ThemeToggle = ToggleDarkLightModeButton
 
 
-        @ThemeDsl
+        @Material3
         val themeFromImage : ThemeToggle = ToggleThemeFromImageButton
 
 
-        @ThemeDsl
+        @Material3
         val themeFromSeed : ThemeToggle = ToggleThemeFromColorButton
 
     }
 
 
-    @ThemeDsl
+    @Material3
     data object FontSize {
 
 
-        @ThemeDsl
+        @Material3
         val xs = 12.sp
 
 
-        @ThemeDsl
+        @Material3
         val s = 14.sp
 
 
-        @ThemeDsl
+        @Material3
         val m = 16.sp
 
 
-        @ThemeDsl
+        @Material3
         val l = 18.sp
 
 
-        @ThemeDsl
+        @Material3
         val xl = 20.sp
 
     }
 
 
-    @ThemeDsl
+    @Material3
     data object Elevation {
 
     }
 
 
-    @ThemeDsl
+    @Material3
     data object Shape {
 
 
-        @ThemeDsl
+        @Material3
         data object RoundedCorner {
 
 
-            @ThemeDsl
+            @Material3
             val xs = RoundedCornerShape(2.dp)
 
 
-            @ThemeDsl
+            @Material3
             val s = RoundedCornerShape(4.dp)
 
 
-            @ThemeDsl
+            @Material3
             val m = RoundedCornerShape(8.dp)
 
 
-            @ThemeDsl
+            @Material3
             val l = RoundedCornerShape(16.dp)
 
 
-            @ThemeDsl
+            @Material3
             val xl = RoundedCornerShape(32.dp)
 
         }
@@ -128,7 +128,7 @@ data object IghtTheme {
 
 
     @Composable
-    @ThemeDsl
+    @Material3
     operator fun invoke(content : @Composable () -> Unit) {
 
         val systemIsDark = isSystemInDarkTheme()
@@ -201,5 +201,5 @@ data object IghtTheme {
 
 
 @Composable
-@ThemeDsl
+@Material3
 expect fun SystemAppearance(isDark : Boolean)

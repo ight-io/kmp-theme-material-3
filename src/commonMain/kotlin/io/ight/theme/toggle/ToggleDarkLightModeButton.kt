@@ -8,11 +8,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import io.ight.theme.IghtTheme
-import io.ight.theme.ThemeDsl
+import io.ight.theme.Material3
 import io.ight.theme.ThemeToggle
 
 
-@ThemeDsl
+@Material3
 internal val ToggleDarkLightModeButton : ThemeToggle = {
     var isDark by IghtTheme.isDark.current
 

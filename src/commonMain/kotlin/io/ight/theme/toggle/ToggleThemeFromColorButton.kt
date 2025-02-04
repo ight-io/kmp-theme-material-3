@@ -29,11 +29,11 @@ import io.ight.theme.AppColor.Seed
 import io.ight.theme.AppColor.Seed.SeedColor
 import io.ight.theme.IghtTheme
 import io.ight.theme.IghtTheme.Shape.RoundedCorner
-import io.ight.theme.ThemeDsl
+import io.ight.theme.Material3
 import io.ight.theme.ThemeToggle
 
 
-@ThemeDsl
+@Material3
 internal val ToggleThemeFromColorButton : ThemeToggle = {
     val appColorState = IghtTheme.appColor.current
     val appColor = appColorState.value

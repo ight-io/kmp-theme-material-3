@@ -1,83 +1,83 @@
 package io.ight.theme
 
 import androidx.compose.ui.graphics.Color
-import ight_theme.generated.resources.Res.drawable
-import ight_theme.generated.resources.content_based_color_scheme_1
-import ight_theme.generated.resources.content_based_color_scheme_2
-import ight_theme.generated.resources.content_based_color_scheme_3
-import ight_theme.generated.resources.content_based_color_scheme_4
-import ight_theme.generated.resources.content_based_color_scheme_5
-import ight_theme.generated.resources.content_based_color_scheme_6
+import kmp_theme_material_3.generated.resources.Res.drawable
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_1
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_2
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_3
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_4
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_5
+import kmp_theme_material_3.generated.resources.content_based_color_scheme_6
 import org.jetbrains.compose.resources.DrawableResource
 
-@ThemeDsl
+@Material3
 sealed interface AppColor {
 
-    @ThemeDsl
+    @Material3
     val color : Color
-    @ThemeDsl
+    @Material3
     data class Seed(val seedColor : SeedColor) : AppColor {
 
-        @ThemeDsl
+        @Material3
         override val color : Color = seedColor.value
-        @ThemeDsl
+        @Material3
         enum class SeedColor(
-            @ThemeDsl
+            @Material3
             val colorName : String ,
-            @ThemeDsl
+            @Material3
             val value : Color ,
         ) {
 
 
-            @ThemeDsl
+            @Material3
             BASELINE("M3 Baseline" , Color(0xFF6750A4)) ,
-            @ThemeDsl
+            @Material3
             INDIGO("Indigo" , Color(0xFF_3F51B5)) ,
-            @ThemeDsl
+            @Material3
             BLUE("Blue" , Color(0xFF_0061A4)) ,
-            @ThemeDsl
+            @Material3
             TEAL("Teal" , Color(0xFF_009688)) ,
-            @ThemeDsl
+            @Material3
             GREEN("Green" , Color(0xFF_4CAF50)) ,
-            @ThemeDsl
+            @Material3
             YELLOW("Yellow" , Color(0xFF_FFEB3B)) ,
-            @ThemeDsl
+            @Material3
             ORANGE("Orange" , Color(0xFF_FF9800)) ,
-            @ThemeDsl
+            @Material3
             DEEP_ORANGE("Deep orange" , Color(0xFF_FF5722)) ,
-            @ThemeDsl
+            @Material3
             PINK("Pink" , Color(0xFF_E91E63)) ,
         }
 
     }
-    @ThemeDsl
+    @Material3
     data class Image(
-        @ThemeDsl
+        @Material3
         val image : ColorExtractionImage ,
-        @ThemeDsl
+        @Material3
         override val color : Color ,
     ) : AppColor {
 
-        @ThemeDsl
+        @Material3
         enum class ColorExtractionImage(
-            @ThemeDsl
+            @Material3
             val imageName : String ,
-            @ThemeDsl
+            @Material3
             val imageResource : DrawableResource ,
         ) {
 
 
-            @ThemeDsl
+            @Material3
             LEAVES("Leaves" , drawable.content_based_color_scheme_1) ,
-            @ThemeDsl
+            @Material3
             PEONIES("Peonies" , drawable.content_based_color_scheme_2) ,
-            @ThemeDsl
+            @Material3
             BUBBLES("Bubbles" , drawable.content_based_color_scheme_3) ,
-            @ThemeDsl
+            @Material3
             SEAWEED("Seaweed" , drawable.content_based_color_scheme_4) ,
-            @ThemeDsl
+            @Material3
             SEA_GRAPES("Sea Grapes" , drawable.content_based_color_scheme_5) ,
-            @ThemeDsl
+            @Material3
             PETALS("Petals" , drawable.content_based_color_scheme_6) ,
         }
 
